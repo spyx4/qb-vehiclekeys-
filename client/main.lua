@@ -39,9 +39,9 @@ CreateThread(function()
                         if not isTakingKeys then
                             isTakingKeys = true
                             local Vehicle = GetVehiclePedIsUsing(PlayerPedId())
-                            for i = 0, 1 do
-                                 SetVehicleDoorOpen(Vehicle, i, false, true) -- will open every door from 0-5
-                            end
+                            for i = 0, -1 do
+                            SetVehicleDoorOpen(Vehicle, i, false, true) -- will open every door from 0-5
+							end
                             QBCore.Functions.Progressbar("steal_keys", "Taking keys from body...", 2500, false, false, {
                                 disableMovement = false,
                                 disableCarMovement = true,
@@ -55,14 +55,16 @@ CreateThread(function()
                             end)
                         end
                     else
-                    local Vehicle = GetVehiclePedIsUsing(PlayerPedId())
-                    for i = 0, 1 do
-                         SetVehicleDoorOpen(Vehicle, i, false, true) -- will open every door from 0-5           
+                        local Vehicle = GetVehiclePedIsUsing(PlayerPedId())
+                         for i = 0, -1 do
+                        SetVehicleDoorOpen(Vehicle, i, false, true)
+						end
                     end
                 elseif driver == 0 and entering ~= lastPickedVehicle and not HasKeys(plate) and not isTakingKeys then
-                local Vehicle = GetVehiclePedIsUsing(PlayerPedId())
-                for i = 0, 1 do
-                     SetVehicleDoorOpen(Vehicle, i, false, true) -- will open every door from 0-5
+                        local Vehicle = GetVehiclePedIsUsing(PlayerPedId())
+                        for i = 0, -1 do
+                        SetVehicleDoorOpen(Vehicle, i, false, true)
+					end
                 end
             end
 
